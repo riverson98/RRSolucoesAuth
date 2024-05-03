@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="EntitiesConfiguration\**" />
+    <EmbeddedResource Remove="EntitiesConfiguration\**" />
+    <None Remove="EntitiesConfiguration\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\R&amp;RSolucaoFinanceiraAuth.Domain\R&amp;RSolucoesFinanceiraAuth.Domain.csproj" />
   </ItemGroup>
 
@@ -25,10 +31,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="EntitiesConfiguration\" />
   </ItemGroup>
 
 </Project>
