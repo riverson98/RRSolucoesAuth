@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>R_RSolucoesFinanceiraAuth.Infra.IoC</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\R&amp;RSolucaoFinanceiraAuth.Domain\R&amp;RSolucoesFinanceiraAuth.Domain.csproj" />
+    <ProjectReference Include="..\R&amp;RSolucoesFinanceiraAuth.Infra.Data\R&amp;RSolucoesFinanceiraAuth.Infra.Data.csproj" />
+    <ProjectReference Include="..\R&amp;RSolucoesFinanceirasAuth.Application\R&amp;RSolucoesFinanceiraAuth.Application.csproj" />
+  </ItemGroup>
+
+</Project>

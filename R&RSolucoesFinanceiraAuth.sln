@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R&RSolucoesFinanceiraAuth.Domain", "R&RSolucaoFinanceiraAuth.Domain\R&RSolucoesFinanceiraAuth.Domain.csproj", "{67F27882-A261-4429-8D74-60B8F85189EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R&RSolucoesFinanceiraAuth.Application", "R&RSolucoesFinanceirasAuth.Application\R&RSolucoesFinanceiraAuth.Application.csproj", "{AC9BA60B-2819-434D-A3D1-C6B499753973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R&RSolucoesFinanceiraAuth.Infra.Data", "R&RSolucoesFinanceiraAuth.Infra.Data\R&RSolucoesFinanceiraAuth.Infra.Data.csproj", "{84E4AA94-80E3-43A1-A0CA-049AF4A2C415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R&RSolucoesFinanceiraAuth.Infra.IoC", "R&RSolucoesFinanceiraAuth.Infra.IoC\R&RSolucoesFinanceiraAuth.Infra.IoC.csproj", "{76592074-2805-4D45-9D9D-AFAD622A68A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R&RSolucoesFinanceiraAuth.WebApi", "R&RSolucoesFinanceiraAuth.WebApi\R&RSolucoesFinanceiraAuth.WebApi.csproj", "{00B61E24-164B-4AA2-9C1C-198E828AB498}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67F27882-A261-4429-8D74-60B8F85189EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F27882-A261-4429-8D74-60B8F85189EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F27882-A261-4429-8D74-60B8F85189EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F27882-A261-4429-8D74-60B8F85189EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC9BA60B-2819-434D-A3D1-C6B499753973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9BA60B-2819-434D-A3D1-C6B499753973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9BA60B-2819-434D-A3D1-C6B499753973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9BA60B-2819-434D-A3D1-C6B499753973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84E4AA94-80E3-43A1-A0CA-049AF4A2C415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84E4AA94-80E3-43A1-A0CA-049AF4A2C415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84E4AA94-80E3-43A1-A0CA-049AF4A2C415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84E4AA94-80E3-43A1-A0CA-049AF4A2C415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76592074-2805-4D45-9D9D-AFAD622A68A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76592074-2805-4D45-9D9D-AFAD622A68A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76592074-2805-4D45-9D9D-AFAD622A68A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76592074-2805-4D45-9D9D-AFAD622A68A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B61E24-164B-4AA2-9C1C-198E828AB498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B61E24-164B-4AA2-9C1C-198E828AB498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B61E24-164B-4AA2-9C1C-198E828AB498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B61E24-164B-4AA2-9C1C-198E828AB498}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6202AA3A-6461-4284-8DEB-E12AD40A002F}
+	EndGlobalSection
+EndGlobal

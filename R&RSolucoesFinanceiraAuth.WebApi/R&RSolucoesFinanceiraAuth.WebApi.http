@@ -1,0 +1,6 @@
+@R_RSolucoesFinanceiraAuth.WebApi_HostAddress = http://localhost:5288
+
+GET {{R_RSolucoesFinanceiraAuth.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
