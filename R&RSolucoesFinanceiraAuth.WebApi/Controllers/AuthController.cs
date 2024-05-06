@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using R_RSolucoesFinanceirasAuth.Application.DTOs;
 using R_RSolucoesFinanceirasAuth.Application.Interfaces;
 
@@ -6,11 +7,11 @@ namespace R_RSolucoesFinanceiraAuth.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class UserController : Controller
+public class AuthController : Controller
 {
     private readonly IUserService _service;
     private readonly IRoleService _roleService;
-    public UserController(IUserService userService, IRoleService roleService)
+    public AuthController(IUserService userService, IRoleService roleService)
     {
         _service = userService;
         _roleService = roleService;
@@ -46,6 +47,18 @@ public class UserController : Controller
 
         var result = await _service.AddRoleAsync(userToRoleDto);
         return Ok(result);
+    }
+
+    [HttpPost("refreshtoken")]
+    public async Task<ActionResult> RefreshToken()
+    {
+        var refreshToken = Request.Cookies["refreshToken"];
+        var response = await _service.RefreshTokenAsync(refreshToken!);
+        
+        if(!string.IsNullOrEmpty(refreshToken))
+            SetRefreshTokenInCookie(response.RefreshToken!);
+        
+        return Ok(response);
     }
 
     private void SetRefreshTokenInCookie(string refreshToken)

@@ -17,6 +17,10 @@ public sealed class RefreshToken
         ValidateDomain(token, expires, created, revoked);
     }
 
+    public void Update(string? token, DateTime expires, DateTime created, DateTime? revoked)
+    {
+        ValidateDomain(token, expires, created, revoked);
+    }
     private void ValidateDomain(string? token, DateTime expires, DateTime created, DateTime? revoked)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(token),

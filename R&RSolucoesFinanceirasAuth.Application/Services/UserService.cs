@@ -30,6 +30,12 @@ public class UserService : IUserService
         return _mapper.Map<AuthenticationDTO>(authentication);
     }
 
+    public async Task<AuthenticationDTO> RefreshTokenAsync(string token)
+    {
+        var authEntity = await _userRepository.RefreshTokenAsync(token);
+        return _mapper.Map<AuthenticationDTO>(authEntity);
+    }
+
     public async Task<string> RegisterAsync(UserDTO userDto)
     {
         var userEntity = _mapper.Map<User>(userDto);

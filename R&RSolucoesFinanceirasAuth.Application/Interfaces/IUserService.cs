@@ -8,4 +8,5 @@ public interface IUserService
     Task<string> RegisterAsync(UserDTO userDto);
     Task<AuthenticationDTO> GetTokenAsync(TokenRequestDTO request);
     Task<string> AddRoleAsync(UserToRoleDTO userToRoleDto);
+    Task<AuthenticationDTO> RefreshTokenAsync(string token);
 }
