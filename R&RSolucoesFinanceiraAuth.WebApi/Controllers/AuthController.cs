@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using R_RSolucoesFinanceirasAuth.Application.DTOs;
 using R_RSolucoesFinanceirasAuth.Application.Interfaces;
 
@@ -21,7 +22,6 @@ public class AuthController : Controller
     public async Task<IActionResult> GetTokenAsync(TokenRequestDTO requestDto)
     {
         var result = await _service.GetTokenAsync(requestDto);
-        SetRefreshTokenInCookie(result.RefreshToken!);
         return Ok(result);
     }
 
@@ -49,25 +49,11 @@ public class AuthController : Controller
         return Ok(result);
     }
 
-    [HttpPost("refreshtoken")]
-    public async Task<ActionResult> RefreshToken()
+    [HttpGet("refreshtoken/{refreshToken}")]
+    public async Task<ActionResult> RefreshToken(string refreshToken)
     {
-        var refreshToken = Request.Cookies["refreshToken"];
         var response = await _service.RefreshTokenAsync(refreshToken!);
         
-        if(!string.IsNullOrEmpty(refreshToken))
-            SetRefreshTokenInCookie(response.RefreshToken!);
-        
         return Ok(response);
-    }
-
-    private void SetRefreshTokenInCookie(string refreshToken)
-    {
-        var cookieOptions = new CookieOptions
-        {
-            HttpOnly = true,
-            Expires = DateTime.UtcNow.AddDays(10),
-        };
-        Response.Cookies.Append("refreshToken", refreshToken, cookieOptions);
     }
 }
