@@ -110,7 +110,7 @@ public class UserRepository : IUserRepository
         return $"Incorrect Credentials for user {user.Email}.";
     }
 
-    public async Task<string> RegisterAsync(User user)
+    public async Task<bool> RegisterAsync(User user)
     {
         var IdentityUser = new AppUser
         {
@@ -127,10 +127,10 @@ public class UserRepository : IUserRepository
             if (result.Succeeded)
                 await _userManager.AddToRoleAsync(IdentityUser, Authorization.default_role.ToString());
 
-            return $"User Registered with username {user.Email}";
+            return result.Succeeded;
         }
         else
-            return $"Email {user.Email} is already registered.";
+            return false;
     }
 
     private async Task<JwtSecurityToken> CreateJwtToken(AppUser user)

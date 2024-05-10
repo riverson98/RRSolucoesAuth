@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Mvc;
 using R_RSolucoesFinanceirasAuth.Application.DTOs;
 using R_RSolucoesFinanceirasAuth.Application.Interfaces;
 
@@ -30,7 +28,15 @@ public class AuthController : Controller
     {
 
         var result = await _service.RegisterAsync(userInfo);
-        return Ok(result);
+
+        return Ok(new ResponseDTO
+        {
+            Message = result ? $"User Registered sucessfully"
+                             : $"Email {userInfo.Email} is already registered.",
+
+            StatusCode = result ? StatusCodes.Status201Created
+                                : StatusCodes.Status400BadRequest
+        });
     }
 
     [HttpPost("registerrole")]
@@ -49,11 +55,11 @@ public class AuthController : Controller
         return Ok(result);
     }
 
-    [HttpGet("refreshtoken/{refreshToken}")]
+    [HttpPost("refreshtoken")]
     public async Task<ActionResult> RefreshToken(string refreshToken)
     {
         var response = await _service.RefreshTokenAsync(refreshToken!);
-        
+
         return Ok(response);
     }
 }
