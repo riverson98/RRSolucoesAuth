@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  auth-service:
+    build:
+      context: ../RRSolucoesFinanceiraAuth
+      dockerfile: Dockerfile
+    container_name: auth-service
+    ports:
+      - "5001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__MySqlConnection=Server=auth-db;Database=authdb;User=root;Password=root;
+    networks:
+      - app-network
+    depends_on:
+      - auth-db
+
+  auth-db:
+    image: mysql:8
+    container_name: auth-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: authdb
+    ports:
+      - "3308:3306"
+    networks:
+      - app-network
+    volumes:
+      - auth_data:/var/lib/mysql
+
+networks:
+  app-network:
+    driver: bridge
+  
+volumes:
+  auth_data:

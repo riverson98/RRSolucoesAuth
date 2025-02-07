@@ -122,6 +122,8 @@ public class UserRepository : IUserRepository
 
         if (userWithSameEmail is null)
         {
+            // TODO se a senha for curta esta retornando o erro de cliente ja registrado. 
+            // se a senha nao atender os requisitos de caracteres especiais também está retornando erro de cliente já registrado.
             var result = await _userManager.CreateAsync(IdentityUser, user.Password!);
 
             if (result.Succeeded)
