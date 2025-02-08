@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "3g8ng4ZPBvuGaa2EkajcHD4prBNHkLYK9yHINIY8TcQ=",
+  "Source": "RRSolucoesFinanceiraApiGateway",
+  "BasePath": "_content/RRSolucoesFinanceiraApiGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

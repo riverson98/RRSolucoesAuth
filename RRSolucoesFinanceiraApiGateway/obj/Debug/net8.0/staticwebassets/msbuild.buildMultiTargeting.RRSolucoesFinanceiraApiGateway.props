@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\RRSolucoesFinanceiraApiGateway.props" />
+</Project>

@@ -1,0 +1,91 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\river\\OneDrive\\Documentos\\workspace\\RRSolucoesFinanceira\\RRSolucoesFinanceiraApiGateway\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{71194BEC-1D1B-40A8-90D3-CB9C2AF48374}|RRSolucoesFinanceiraApiGateway.csproj|c:\\users\\river\\onedrive\\documentos\\workspace\\rrsolucoesfinanceira\\rrsolucoesfinanceiraapigateway\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{71194BEC-1D1B-40A8-90D3-CB9C2AF48374}|RRSolucoesFinanceiraApiGateway.csproj|solutionrelative:ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71194BEC-1D1B-40A8-90D3-CB9C2AF48374}|RRSolucoesFinanceiraApiGateway.csproj|c:\\users\\river\\onedrive\\documentos\\workspace\\rrsolucoesfinanceira\\rrsolucoesfinanceiraapigateway\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{71194BEC-1D1B-40A8-90D3-CB9C2AF48374}|RRSolucoesFinanceiraApiGateway.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71194BEC-1D1B-40A8-90D3-CB9C2AF48374}|RRSolucoesFinanceiraApiGateway.csproj|c:\\users\\river\\onedrive\\documentos\\workspace\\rrsolucoesfinanceira\\rrsolucoesfinanceiraapigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71194BEC-1D1B-40A8-90D3-CB9C2AF48374}|RRSolucoesFinanceiraApiGateway.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:18:0:{dcc4ea97-1c0c-482b-b205-e541c0df9728}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\river\\OneDrive\\Documentos\\workspace\\RRSolucoesFinanceira\\RRSolucoesFinanceiraApiGateway\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "C:\\Users\\river\\OneDrive\\Documentos\\workspace\\RRSolucoesFinanceira\\RRSolucoesFinanceiraApiGateway\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-02-07T12:48:04.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\river\\OneDrive\\Documentos\\workspace\\RRSolucoesFinanceira\\RRSolucoesFinanceiraApiGateway\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\river\\OneDrive\\Documentos\\workspace\\RRSolucoesFinanceira\\RRSolucoesFinanceiraApiGateway\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T12:46:27.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ocelot.json",
+              "DocumentMoniker": "C:\\Users\\river\\OneDrive\\Documentos\\workspace\\RRSolucoesFinanceira\\RRSolucoesFinanceiraApiGateway\\ocelot.json",
+              "RelativeDocumentMoniker": "ocelot.json",
+              "ToolTip": "C:\\Users\\river\\OneDrive\\Documentos\\workspace\\RRSolucoesFinanceira\\RRSolucoesFinanceiraApiGateway\\ocelot.json",
+              "RelativeToolTip": "ocelot.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-07T12:45:57.694Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
