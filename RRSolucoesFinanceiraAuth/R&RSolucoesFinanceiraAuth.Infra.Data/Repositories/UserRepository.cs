@@ -110,7 +110,7 @@ public class UserRepository : IUserRepository
         return $"Incorrect Credentials for user {user.Email}.";
     }
 
-    public async Task<bool> RegisterAsync(User user)
+    public async Task<Response> RegisterAsync(User user)
     {
         var IdentityUser = new AppUser
         {
@@ -127,12 +127,27 @@ public class UserRepository : IUserRepository
             var result = await _userManager.CreateAsync(IdentityUser, user.Password!);
 
             if (result.Succeeded)
-                await _userManager.AddToRoleAsync(IdentityUser, Authorization.default_role.ToString());
+            {
+                await _userManager.AddToRoleAsync(IdentityUser, Authorization.DEFAULT_ROLE.ToString());
+                return new Response(result.Succeeded);
+            }
 
-            return result.Succeeded;
+            var errors = new List<string>();
+
+            foreach(var error in result.Errors)
+            {
+                errors.Add(error.Description);
+            }
+         
+            return new Response(errors, result.Succeeded);
         }
         else
-            return false;
+        {
+            var errors = new List<string>();
+            errors.Add("user already registered");
+            
+            return new Response(errors, false);
+        }
     }
 
     private async Task<JwtSecurityToken> CreateJwtToken(AppUser user)

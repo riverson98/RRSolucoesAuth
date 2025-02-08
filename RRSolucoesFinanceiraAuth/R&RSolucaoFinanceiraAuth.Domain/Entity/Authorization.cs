@@ -8,5 +8,5 @@ public sealed class Authorization
         Moderator,
         User
     }
-    public const Roles default_role = Roles.User;
+    public const Roles DEFAULT_ROLE = Roles.User;
 }
