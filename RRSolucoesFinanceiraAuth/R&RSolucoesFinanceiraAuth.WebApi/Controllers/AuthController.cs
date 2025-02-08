@@ -26,17 +26,12 @@ public class AuthController : Controller
     [HttpPost("register")]
     public async Task<ActionResult> RegisterAsync(UserDTO userInfo)
     {
-
         var result = await _service.RegisterAsync(userInfo);
 
-        return Ok(new ResponseDTO
-        {
-            Message = result ? $"User Registered sucessfully"
-                             : $"Email {userInfo.Email} is already registered.",
+        if (result.Success) 
+            return Ok(result);
 
-            StatusCode = result ? StatusCodes.Status201Created
-                                : StatusCodes.Status400BadRequest
-        });
+        return BadRequest(result);
     }
 
     [HttpPost("registerrole")]
