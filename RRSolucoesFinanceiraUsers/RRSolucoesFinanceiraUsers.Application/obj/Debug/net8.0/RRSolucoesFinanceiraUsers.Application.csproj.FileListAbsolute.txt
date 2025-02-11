@@ -1,0 +1,16 @@
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\bin\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.deps.json
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\bin\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.dll
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\bin\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.pdb
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.AssemblyInfoInputs.cache
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.AssemblyInfo.cs
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.csproj.CoreCompileInputs.cache
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.sourcelink.json
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.dll
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\refint\RRSolucoesFinanceiraUsers.Application.dll
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.pdb
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\ref\RRSolucoesFinanceiraUsers.Application.dll
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\bin\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.dll
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\bin\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.pdb
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Application.csproj.AssemblyReference.cache
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Application\obj\Debug\net8.0\RRSoluco.83552E3F.Up2Date

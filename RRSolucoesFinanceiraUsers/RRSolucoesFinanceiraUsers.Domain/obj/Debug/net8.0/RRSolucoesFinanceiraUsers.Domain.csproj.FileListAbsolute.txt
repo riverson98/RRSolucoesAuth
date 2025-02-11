@@ -1,0 +1,12 @@
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\bin\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.deps.json
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\bin\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.dll
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\bin\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.pdb
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.AssemblyInfoInputs.cache
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.AssemblyInfo.cs
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.csproj.CoreCompileInputs.cache
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.sourcelink.json
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.dll
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\obj\Debug\net8.0\refint\RRSolucoesFinanceiraUsers.Domain.dll
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\obj\Debug\net8.0\RRSolucoesFinanceiraUsers.Domain.pdb
+C:\Users\river\OneDrive\Documentos\workspace\RRSolucoesFinanceira\RRSolucoesFinanceiraUsers\RRSolucoesFinanceiraUsers.Domain\obj\Debug\net8.0\ref\RRSolucoesFinanceiraUsers.Domain.dll
