@@ -12,6 +12,7 @@ public class UserDTO
     public DateOnly? BirthDate { get; set; }
     public char? Sex { get; set; }
     public string? PhotoPath { get; set; }
+    public bool IsRegistrationComplete { get; set; }
     public DateTime? CreatedAt { get; set; }
     public AddressDTO? AddressDto { get; set; }
     public PhoneDTO? PhoneDto { get; set; }

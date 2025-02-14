@@ -11,6 +11,7 @@ public sealed class UserEntity
     public char? Sex { get; private set; }
     public string? PhotoPath { get; private set; }
     public DateTime RegistrationDate { get; private set; }
+    public bool IsRegistrationComplete { get; private set; }
     public AddressEntity? Address { get; set; }
     public DocumentEntity? Document { get; set; }
     public UserEntityRoles Role { get; set; }
@@ -29,15 +30,17 @@ public sealed class UserEntity
     }
 
     public UserEntity(string name, string email, DateOnly birthDate, char sex, string photoPath, AddressEntity address,
-                      DocumentEntity document, List<PhoneEntity> phones)
+                      DocumentEntity document, List<PhoneEntity> phones, bool isRegistrationComplete)
     {
         ValidateDomain(name, email, birthDate, sex, photoPath);
+        IsRegistrationComplete = isRegistrationComplete;
     }
-    public UserEntity(string email, Guid id, DateTime createdAt)
+    public UserEntity(string email, Guid id, DateTime createdAt, bool isRegistrationComplete)
     {
         DomainExceptionValidation.When(Guid.Empty.Equals(id), "Invalid id value");
         Id = id;
         RegistrationDate = createdAt;
+        IsRegistrationComplete = isRegistrationComplete;
         ValidateDomain(email);
     }
 

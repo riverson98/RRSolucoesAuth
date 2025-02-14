@@ -12,9 +12,11 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly IService<UserEntity, UserDTO> _service;
-        public UserController(IService<UserEntity, UserDTO> service)
+        private readonly IUserService _userService;
+        public UserController(IService<UserEntity, UserDTO> service, IUserService userService)
         {
             _service = service;
+            _userService = userService;
         }
 
         // GET: api/User
@@ -27,10 +29,10 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
         }
 
         // GET api/User/5
-        [HttpGet("{id:int:min(1)}", Name = "GetUserById")]
-        public async Task<ActionResult<UserDTO>> GetById(int id)
+        [HttpGet("{id:guid}", Name = "GetUserById")]
+        public async Task<ActionResult<UserDTO>> GetById(Guid id)
         {
-            var userDto = await _service.GetAsync(user => user.Id.Equals(id));
+            var userDto = await _userService.GetUserById(id);
 
             if (userDto is null)
                 return NotFound("Sorry this user can be found in our database");
@@ -72,7 +74,7 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
                 return NotFound("Any user found");
 
             await _service.Delete(userDto);
-            
+
             return Ok(userDto);
         }
     }
