@@ -11,4 +11,5 @@ public class AuthenticationDTO
     public string? Token { get; set; }
     public string? RefreshToken { get; set; }
     public DateTime RefreshTokenExpiration { get; set; }
+    public bool IsRegistrationCompleted { get; set; }
 }

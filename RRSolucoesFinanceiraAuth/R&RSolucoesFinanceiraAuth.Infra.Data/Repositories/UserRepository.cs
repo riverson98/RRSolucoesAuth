@@ -43,7 +43,8 @@ public class UserRepository : IUserRepository
                     roles: new List<string>(),
                     token: "invalid token",
                     refreshToken: "invalid refreshToken",
-                    refreshTokenExpiration: DateTime.Now.AddSeconds(1)
+                    refreshTokenExpiration: DateTime.Now.AddSeconds(1),
+                    isRegistrationCompleted: false
                 );
         }
 
@@ -61,7 +62,7 @@ public class UserRepository : IUserRepository
                
                 var auth = GenerateAuthenticationResponse("Token generated successfully", true,
                                 user.Email!, roles, new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken), 
-                                refreshToken.Token!, refreshToken.Expires);
+                                refreshToken.Token!, refreshToken.Expires, user.IsRegistrationCompleted);
 
                 user.RefreshTokens.Add(refreshToken);
                 _context.Update(user);
@@ -74,11 +75,11 @@ public class UserRepository : IUserRepository
 
             return GenerateAuthenticationResponse("Refresh token is actived successfully", true,
                      user.Email!, roles, new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
-                    validRefresh!.Token!, validRefresh.Expires);
+                    validRefresh!.Token!, validRefresh.Expires, user.IsRegistrationCompleted);
         }
         return GenerateAuthenticationResponse($"Incorrect Credentials for user {user.Email}.", false,
-                tokenRequest.Email!, new List<string>(), "empty value", 
-                "empty value", DateTime.Now.AddSeconds(5));
+                tokenRequest.Email!, new List<string>(), "empty value",
+                "empty value", DateTime.Now.AddSeconds(5), false);
     }
 
     public async Task<string> AddRoleAsync(UserToRole userToRole)
@@ -187,7 +188,7 @@ public class UserRepository : IUserRepository
     private RefreshToken CreateRefreshToken()
     {
         var randomNumber = new byte[32];
-        using (var generator = new RNGCryptoServiceProvider())
+        using (var generator = RandomNumberGenerator.Create())
         {
             generator.GetBytes(randomNumber);
 
@@ -208,13 +209,13 @@ public class UserRepository : IUserRepository
                                                       .Any(refresh => refresh.Token!.Equals(token)));
         if(user is null)
             return GenerateAuthenticationResponse("Token did not match any users.", false, 
-                "empty value", new List<string>(), "empty value","empty value", DateTime.Now.AddSeconds(5));
+                "empty value", new List<string>(), "empty value","empty value", DateTime.Now.AddSeconds(5), false);
 
         var refreshToken = user.RefreshTokens.Single(userToken => userToken.Token!.Equals(token));
 
         if (!refreshToken.IsActive)
             return GenerateAuthenticationResponse("Token Not Active", false,
-               "empty value", new List<string>(), "empty value", "empty value", DateTime.Now.AddSeconds(5));
+               "empty value", new List<string>(), "empty value", "empty value", DateTime.Now.AddSeconds(5), false);
 
         refreshToken.Update(refreshToken.Token, refreshToken.Expires, refreshToken.Created, DateTime.Now);
 
@@ -228,13 +229,14 @@ public class UserRepository : IUserRepository
         
         return GenerateAuthenticationResponse("Token generated successfully", true,
                user.Email!, roles, new JwtSecurityTokenHandler().WriteToken(jwtToken),
-               newRefreshToken.Token!, refreshToken.Expires);
+               newRefreshToken.Token!, refreshToken.Expires, user.IsRegistrationCompleted);
 
     }
 
     private Authentication GenerateAuthenticationResponse(string message, bool isAuthenticated, string email,
                                                           IEnumerable<string> roles, string token, 
-                                                          string refreshtoken, DateTime refreshTokenExpiration)
+                                                          string refreshtoken, DateTime refreshTokenExpiration, 
+                                                          bool isRegistrationCompleted)
     {
         return new Authentication
                (
@@ -244,7 +246,8 @@ public class UserRepository : IUserRepository
                    roles: roles,
                    token: token,
                    refreshToken: refreshtoken,
-                   refreshTokenExpiration: refreshTokenExpiration
+                   refreshTokenExpiration: refreshTokenExpiration,
+                   isRegistrationCompleted: isRegistrationCompleted
                );
     }
 }

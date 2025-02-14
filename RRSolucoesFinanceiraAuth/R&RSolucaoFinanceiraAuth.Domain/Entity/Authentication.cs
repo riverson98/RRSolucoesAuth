@@ -11,15 +11,16 @@ public sealed class Authentication
     public string? Token { get; private set; }
     public string? RefreshToken { get; private set; }
     public DateTime RefreshTokenExpiration { get; private set; }
+    public bool IsRegistrationCompleted { get; private set; }
 
     public Authentication(string? message, bool isAuthenticated, string? email, IEnumerable<string> roles, 
-        string? token, string? refreshToken, DateTime refreshTokenExpiration)
+        string? token, string? refreshToken, DateTime refreshTokenExpiration, bool isRegistrationCompleted)
     {
-        ValidateDomain(message, isAuthenticated, email, roles, token, refreshToken, refreshTokenExpiration);
+        ValidateDomain(message, isAuthenticated, email, roles, token, refreshToken, refreshTokenExpiration, isRegistrationCompleted);
     }
 
     private void ValidateDomain(string? message, bool isAuthenticated, string? email, IEnumerable<string> roles,
-                                string? token, string? refreshToken, DateTime refreshTokenExpiration)
+                                string? token, string? refreshToken, DateTime refreshTokenExpiration, bool isRegistrationCompleted)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(message),
             "The messager is required");
@@ -43,5 +44,6 @@ public sealed class Authentication
         Token = token;
         RefreshToken = refreshToken;
         RefreshTokenExpiration = refreshTokenExpiration;
+        IsRegistrationCompleted = isRegistrationCompleted;
     }
 }
