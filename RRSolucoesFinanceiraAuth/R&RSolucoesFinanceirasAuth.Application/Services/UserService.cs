@@ -53,6 +53,7 @@ public class UserService : IUserService
             response.RefreshToken = authEntity.RefreshToken;
             response.Success = true;
             response.CreatedAt = result.CreatedAt;
+            response.IsRegistrationCompleted = authEntity.IsRegistrationCompleted;
 
             return response;
         }
