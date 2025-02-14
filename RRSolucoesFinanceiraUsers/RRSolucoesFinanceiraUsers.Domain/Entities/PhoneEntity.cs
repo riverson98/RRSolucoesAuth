@@ -6,7 +6,7 @@ namespace RRSolucoesFinanceiraUsers.Domain.Entities;
 public sealed class PhoneEntity
 {
     public int Id { get; }
-    public int UserId { get; private set; }
+    public Guid UserId { get; private set; }
     public TypeOfContact TypeOfContact { get; private set; }
     public string PhoneNumber { get; private set; }
     public UserEntity User { get; set; }
@@ -42,7 +42,7 @@ public sealed class PhoneEntity
         TypeOfContact = typeOfContact;
     }
 
-    public void Update(string phoneNumber, TypeOfContact typeOfContact, int userId)
+    public void Update(string phoneNumber, TypeOfContact typeOfContact, Guid userId)
     {
         ValidateDomain(phoneNumber, typeOfContact);
         UserId = userId;

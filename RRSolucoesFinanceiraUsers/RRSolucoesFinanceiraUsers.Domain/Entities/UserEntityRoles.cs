@@ -11,7 +11,7 @@ public sealed class UserEntityRoles
     public bool RequiredAddress { get; private set; }
     public bool RequiredPhone { get; private set; }
     public bool RequiredDocument { get; private set; }
-    public int UserId {  get; private set; }
+    public Guid UserId {  get; private set; }
     public UserEntity User { get; set; }
 
     public UserEntityRoles()
@@ -38,7 +38,7 @@ public sealed class UserEntityRoles
         Roles = roles;
     }
 
-    public void Update(bool requiredAddress, bool requiredPhone, bool requiredDocument, Roles roles, int userId)
+    public void Update(bool requiredAddress, bool requiredPhone, bool requiredDocument, Roles roles, Guid userId)
     {
         DomainExceptionValidation.When(roles < 0, "Invalid value for roles");
         RequiredAddress = requiredAddress;

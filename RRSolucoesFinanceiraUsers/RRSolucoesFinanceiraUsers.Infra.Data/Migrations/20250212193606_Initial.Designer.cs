@@ -12,7 +12,7 @@ using RRSolucoesFinanceiraUsers.Infra.Data.Context;
 namespace RRSolucoesFinanceiraUsers.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250211194229_Initial")]
+    [Migration("20250212193606_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -64,8 +64,8 @@ namespace RRSolucoesFinanceiraUsers.Infra.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("ZipCode")
                         .IsRequired()
@@ -103,8 +103,8 @@ namespace RRSolucoesFinanceiraUsers.Infra.Data.Migrations
                         .HasMaxLength(11)
                         .HasColumnType("varchar(11)");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
 
                     b.HasKey("Id");
 
@@ -130,8 +130,8 @@ namespace RRSolucoesFinanceiraUsers.Infra.Data.Migrations
                     b.Property<int>("TypeOfContact")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
 
                     b.HasKey("Id");
 
@@ -142,11 +142,8 @@ namespace RRSolucoesFinanceiraUsers.Infra.Data.Migrations
 
             modelBuilder.Entity("RRSolucoesFinanceiraUsers.Domain.Entities.UserEntity", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                    b.Property<Guid>("Id")
+                        .HasColumnType("char(36)");
 
                     b.Property<DateOnly?>("BirthDate")
                         .IsRequired()
@@ -198,8 +195,8 @@ namespace RRSolucoesFinanceiraUsers.Infra.Data.Migrations
                     b.Property<int>("Roles")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)");
 
                     b.HasKey("Id");
 
@@ -224,7 +221,9 @@ namespace RRSolucoesFinanceiraUsers.Infra.Data.Migrations
                 {
                     b.HasOne("RRSolucoesFinanceiraUsers.Domain.Entities.UserEntity", "User")
                         .WithOne("Document")
-                        .HasForeignKey("RRSolucoesFinanceiraUsers.Domain.Entities.DocumentEntity", "UserId");
+                        .HasForeignKey("RRSolucoesFinanceiraUsers.Domain.Entities.DocumentEntity", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });

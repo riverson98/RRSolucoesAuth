@@ -9,4 +9,11 @@ public class UserEntityRepository : Repository<UserEntity>, IUserEntityRepositor
     public UserEntityRepository(ApplicationDBContext context) : base(context)
     {
     }
+
+    public async Task<UserEntity> AddEmailAndIdInicial(Guid id, string? email, DateTime createdAt)
+    {
+        var userEntity = new UserEntity(email!, id, createdAt);
+        _context.Add(userEntity);
+        return userEntity;  
+    }
 }

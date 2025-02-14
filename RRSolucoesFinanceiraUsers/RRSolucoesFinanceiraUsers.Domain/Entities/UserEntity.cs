@@ -1,17 +1,15 @@
 ﻿using RRSolucoesFinanceiraUsers.Domain.Validation;
-using System.Net;
-using System.Reflection.Metadata;
 
 namespace RRSolucoesFinanceiraUsers.Domain.Entities;
 
 public sealed class UserEntity
 {
-    public int Id { get; }
+    public Guid Id { get; }
     public string? Name { get; private set; }
     public string? Email { get; private set; }
     public DateOnly? BirthDate { get; private set; }
     public char? Sex { get; private set; }
-    public string? PhotoPath {  get; private set; }
+    public string? PhotoPath { get; private set; }
     public DateTime RegistrationDate { get; private set; }
     public AddressEntity? Address { get; set; }
     public DocumentEntity? Document { get; set; }
@@ -20,12 +18,12 @@ public sealed class UserEntity
 
     public UserEntity()
     {
-        
+
     }
-    public UserEntity(int id, string name, string email, DateOnly birthDate, char sex, string photoPath,
+    public UserEntity(Guid id, string name, string email, DateOnly birthDate, char sex, string photoPath,
                       AddressEntity address, DocumentEntity document, List<PhoneEntity> phones)
     {
-        DomainExceptionValidation.When(id < 0, "Invalid id value");
+        DomainExceptionValidation.When(Guid.Empty.Equals(id), "Invalid id value");
         Id = id;
         ValidateDomain(name, email, birthDate, sex, photoPath);
     }
@@ -35,8 +33,11 @@ public sealed class UserEntity
     {
         ValidateDomain(name, email, birthDate, sex, photoPath);
     }
-    public UserEntity(string email)
+    public UserEntity(string email, Guid id, DateTime createdAt)
     {
+        DomainExceptionValidation.When(Guid.Empty.Equals(id), "Invalid id value");
+        Id = id;
+        RegistrationDate = createdAt;
         ValidateDomain(email);
     }
 
@@ -60,10 +61,10 @@ public sealed class UserEntity
         var today = DateOnly.FromDateTime(DateTime.Today);
         int age = today.Year - birthDate.Year;
 
-        
+
         if (birthDate > today.AddYears(-age))
             age--;
-        
+
         DomainExceptionValidation.When(age < 18,
             "User must be at least 18 years old");
 
@@ -71,7 +72,6 @@ public sealed class UserEntity
         Email = email;
         BirthDate = birthDate;
         PhotoPath = photoPath;
-        RegistrationDate = DateTime.Now;
     }
 
     private void ValidateDomain(string email)
@@ -80,5 +80,6 @@ public sealed class UserEntity
             "The email is required");
 
         Email = email;
+        RegistrationDate = DateTime.Now;
     }
 }

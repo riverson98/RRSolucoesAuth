@@ -5,7 +5,7 @@ namespace RRSolucoesFinanceiraUsers.Domain.Entities;
 public sealed class AddressEntity
 {
     public int Id { get; }
-    public int UserId { get; private set; }
+    public Guid UserId { get; private set; }
     public string? Street { get; private set; }
     public int? Number { get; private set; }
     public string? District { get; private set; }
@@ -70,7 +70,7 @@ public sealed class AddressEntity
         DateUpload = DateTime.Now;
     }
     
-    public void Update(int userId, string? street, int number, string? district, char state,
+    public void Update(Guid userId, string? street, int number, string? district, char state,
                          string? city, string? zipCode, string? proofOfResidencePath)
     {
         ValidateDomain(street, number, district, state, city, zipCode, proofOfResidencePath);

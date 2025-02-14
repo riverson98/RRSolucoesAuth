@@ -6,7 +6,7 @@ namespace RRSolucoesFinanceiraUsers.Domain.Entities;
 public sealed class DocumentEntity
 {
     public int Id { get; }
-    public int? UserId { get; private set; }
+    public Guid UserId { get; private set; }
     public UserEntity User { get; private set; }
     public DocumentType DocumentType { get; private set; }
     public string? NumberOfDocument { get; private set; }
@@ -29,7 +29,7 @@ public sealed class DocumentEntity
         ValidateDomain(numberOfDocument, filePath, documentType);
     }
 
-    public void Update(string numberOfDocument, string filePath, int? userId, DocumentType documentType)
+    public void Update(string numberOfDocument, string filePath, Guid userId, DocumentType documentType)
     {
         ValidateDomain(numberOfDocument, filePath, documentType);
         UserId = userId;

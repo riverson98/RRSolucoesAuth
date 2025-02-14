@@ -32,6 +32,7 @@ public class Repository<T> : IRepository<T> where T : class
 
     public T Delete(T entity)
     {
+        //TODO fazer um delete por id
         _context.Set<T>().Remove(entity);
         return entity;
     }
