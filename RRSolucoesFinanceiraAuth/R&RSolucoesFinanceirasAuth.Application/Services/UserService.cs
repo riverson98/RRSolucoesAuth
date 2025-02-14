@@ -3,7 +3,6 @@ using R_RSolucaoFinanceiraAuth.Domain.Entity;
 using R_RSolucaoFinanceiraAuth.Domain.Interface;
 using R_RSolucoesFinanceirasAuth.Application.DTOs;
 using R_RSolucoesFinanceirasAuth.Application.Interfaces;
-using System.Diagnostics;
 
 namespace R_RSolucoesFinanceirasAuth.Application.Services;
 
@@ -43,19 +42,22 @@ public class UserService : IUserService
         var userEntity = _mapper.Map<User>(userDto);
         var result = await _userRepository.RegisterAsync(userEntity);
 
-        if(result.GetSuccess())
+        if (result.GetSuccess())
         {
             var requestToken = new TokenRequest(userEntity.Email, userEntity.Password);
             var authEntity = await _userRepository.GenerateAccessTokenAsync(requestToken);
 
+            response.Id = result.Id;
+            response.Email = result.Email;
             response.Token = authEntity.Token;
-            response.RefreshToken= authEntity.RefreshToken;
+            response.RefreshToken = authEntity.RefreshToken;
             response.Success = true;
-            
+            response.CreatedAt = result.CreatedAt;
+
             return response;
         }
 
-        foreach (var erro in result.GetErrors()) 
+        foreach (var erro in result.GetErrors())
         {
             response.Errors.Add(erro);
         }

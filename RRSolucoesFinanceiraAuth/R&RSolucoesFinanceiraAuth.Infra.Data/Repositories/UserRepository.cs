@@ -112,7 +112,7 @@ public class UserRepository : IUserRepository
 
     public async Task<Response> RegisterAsync(User user)
     {
-        var IdentityUser = new AppUser
+        var identityUser = new AppUser
         {
             UserName = user.Email,
             Email = user.Email
@@ -124,12 +124,12 @@ public class UserRepository : IUserRepository
         {
             // TODO se a senha for curta esta retornando o erro de cliente ja registrado. 
             // se a senha nao atender os requisitos de caracteres especiais também está retornando erro de cliente já registrado.
-            var result = await _userManager.CreateAsync(IdentityUser, user.Password!);
+            var result = await _userManager.CreateAsync(identityUser, user.Password!);
 
             if (result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(IdentityUser, Authorization.DEFAULT_ROLE.ToString());
-                return new Response(result.Succeeded);
+                await _userManager.AddToRoleAsync(identityUser, Authorization.DEFAULT_ROLE.ToString());
+                return new Response(result.Succeeded, identityUser.Id, identityUser.Email);
             }
 
             var errors = new List<string>();
@@ -146,7 +146,7 @@ public class UserRepository : IUserRepository
             var errors = new List<string>();
             errors.Add("user already registered");
             
-            return new Response(errors, false);
+            return new Response(errors, success:false);
         }
     }
 

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using R_RSolucoesFinanceirasAuth.Application.DTOs;
 using R_RSolucoesFinanceirasAuth.Application.Interfaces;
+using R_RSolucoesFinanceirasAuth.Application.Messaging;
+using System.Diagnostics;
 
 namespace R_RSolucoesFinanceiraAuth.WebApi.Controllers;
 
@@ -10,10 +12,14 @@ public class AuthController : Controller
 {
     private readonly IUserService _service;
     private readonly IRoleService _roleService;
-    public AuthController(IUserService userService, IRoleService roleService)
+    private readonly IUserEventPublisher _eventPublisher;
+    private readonly ILogger<AuthController> _log;
+    public AuthController(IUserService userService, IRoleService roleService, IUserEventPublisher eventPublisher, ILogger<AuthController> log)
     {
         _service = userService;
         _roleService = roleService;
+        _eventPublisher = eventPublisher;
+        _log = log;
     }
 
     [HttpPost("login")]
@@ -26,11 +32,20 @@ public class AuthController : Controller
     [HttpPost("register")]
     public async Task<ActionResult> RegisterAsync(UserDTO userInfo)
     {
+        var time = new Stopwatch();
+        time.Start();
+        _log.LogInformation("✨ Receiving new user registration, e-mail:{0}", userInfo.Email);
         var result = await _service.RegisterAsync(userInfo);
+        time.Stop();
 
-        if (result.Success) 
+        if (result.Success)
+        {
+            _log.LogInformation("(✅ user registred successufuly, id:{0} e-mail:{1} elapsed time: {2} ms", result.Id, userInfo.Email, time.ElapsedMilliseconds);
+            await _eventPublisher.PublishUserCreatedAsync(result.Id!, result.Email!, result.CreatedAt);
             return Ok(result);
+        }
 
+        _log.LogInformation("(❌ something went wrong with user registration error: {0}, elapsed time: {1} ms", result.Errors, time.ElapsedMilliseconds);
         return BadRequest(result);
     }
 

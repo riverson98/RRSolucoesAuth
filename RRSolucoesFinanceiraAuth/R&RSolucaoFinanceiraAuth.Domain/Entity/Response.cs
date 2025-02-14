@@ -1,36 +1,51 @@
-﻿namespace R_RSolucaoFinanceiraAuth.Domain.Entity;
+﻿using R_RSolucaoFinanceiraAuth.Domain.Validation;
+
+namespace R_RSolucaoFinanceiraAuth.Domain.Entity;
 
 public class Response
 {
-    private List<string>? Errors;
-    private bool Success;
+    public string? Id { get; private set; }
+    public string? Email { get; private set; }
+    public List<string>? Errors { get; private set; }
+    public bool Success { get; private set; }
+    public DateTime CreatedAt { get; private set; }
 
     public Response()
     {
-        
+
     }
 
-    public Response(bool success)
+    public Response(bool success, string? id, string? email)
     {
-        this.Success = success;
+        if (success)
+        {
+            DomainExceptionValidation.When(string.IsNullOrEmpty(id), "The user id can be empty or null");
+            DomainExceptionValidation.When(string.IsNullOrEmpty(email), "The user email can be empty or null");
+
+            CreatedAt = DateTime.Now;
+        }
+
+        Id = id;
+        Success = success;
+        Email = email;
     }
 
     public Response(List<string> errors, bool success)
     {
         if (errors is null)
-            this.Errors = new List<string>();
+            Errors = new List<string>();
 
-        this.Success = success;
-        this.Errors = errors;
+        Success = success;
+        Errors = errors;
     }
 
     public bool GetSuccess()
     {
-        return this.Success;
+        return Success;
     }
 
     public List<string>? GetErrors()
     {
-        return this.Errors;
+        return Errors;
     }
 }
