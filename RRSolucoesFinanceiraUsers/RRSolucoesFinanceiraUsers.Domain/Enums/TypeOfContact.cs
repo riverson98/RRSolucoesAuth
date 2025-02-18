@@ -3,5 +3,6 @@
 public enum TypeOfContact
 {
     PERSONAL = 1,
-    BUSINESS = 2
+    BUSINESS = 2,
+    RESIDENTIAL = 3
 }
