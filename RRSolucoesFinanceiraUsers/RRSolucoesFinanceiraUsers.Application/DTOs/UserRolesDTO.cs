@@ -1,5 +1,4 @@
-﻿using RRSolucoesFinanceiraUsers.Domain.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace RRSolucoesFinanceiraUsers.Application.DTOs;
 
@@ -8,7 +7,7 @@ public class UserRolesDTO
     public int Id { get; set; }
 
     [Required(ErrorMessage = "The role is required")]
-    public Roles Roles { get; set; }
+    public string? Roles { get; set; }
 
     [Required(ErrorMessage = "The required address most have be informed")]
     public bool RequiredAddress { get; set; }
@@ -21,5 +20,4 @@ public class UserRolesDTO
 
     [Required(ErrorMessage = "The user id is required")]
     public Guid UserId { get; set; }
-    public UserDTO? User { get; set; }
 }

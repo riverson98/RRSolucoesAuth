@@ -15,6 +15,7 @@ public class UserDTO
     public bool IsRegistrationComplete { get; set; }
     public DateTime? CreatedAt { get; set; }
     public AddressDTO? AddressDto { get; set; }
-    public PhoneDTO? PhoneDto { get; set; }
+    public DocumentDTO DocumentDTO { get; set; }
+    public IEnumerable<PhoneDTO?> PhonesDto { get; set; }
     public UserRolesDTO? UserRolesDto { get; set; }
 }

@@ -19,13 +19,13 @@ public class AddressDTO
     public string? District { get; set; }
 
     [Required(ErrorMessage = "The state is required")]
-    public char? State { get; set; }
+    public string? State { get; set; }
 
     [Required(ErrorMessage = "The city is required")]
     public string? City { get; set; }
 
     [Required(ErrorMessage = "The zip code is required")]
     public string? ZipCode { get; set; }
+    
     public string? ProofOfResidencePath { get; set; }
-    public UserDTO? UserDto { get; set; }
 }

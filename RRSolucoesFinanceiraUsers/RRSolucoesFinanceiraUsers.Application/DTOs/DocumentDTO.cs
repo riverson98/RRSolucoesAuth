@@ -6,16 +6,15 @@ namespace RRSolucoesFinanceiraUsers.Application.DTOs;
 
 public class DocumentDTO
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
     [Required(ErrorMessage = "The user id is required")]
-    public Guid UserId { get; set; }
+    public Guid? UserId { get; set; }
 
     [Required(ErrorMessage = "The document type is required")]
-    public DocumentType DocumentType { get; set; }
+    public string? DocumentType { get; set; }
 
     [Required(ErrorMessage = "The number of the document is required")]
     public string? NumberOfDocument { get; set; }
     public string? FilePath { get; set; }
-    public UserDTO? UserDto { get; set; }
 }

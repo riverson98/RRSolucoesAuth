@@ -8,12 +8,11 @@ public class PhoneDTO
     public int Id { get; set; }
 
     [Required(ErrorMessage = "The user id is required")]
-    public int Guid { get; set; }
+    public Guid UserId { get; set; }
 
     [Required(ErrorMessage = "The type of contact is required")]
-    public TypeOfContact TypeOfContact { get; set; }
+    public string? TypeOfContact { get; set; }
 
     [Required(ErrorMessage = "The phone number is required")]
     public string? PhoneNumber { get; set; }
-    public UserDTO? UserDto { get; set; }
 }

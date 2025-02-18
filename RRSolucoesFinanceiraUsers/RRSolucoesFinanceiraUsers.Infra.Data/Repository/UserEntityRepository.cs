@@ -18,4 +18,16 @@ public class UserEntityRepository : Repository<UserEntity>, IUserEntityRepositor
         _context.Add(userEntity);
         return userEntity;  
     }
+
+    public async Task<UserEntity?> GetUserWithDetailsAsync(Guid? id)
+    {
+        return await _context.Set<UserEntity>()
+                             .Include(user => user.Document)
+                             .Include(user => user.Address)
+                             .Include(user => user.Phones)
+                             .Include(user => user.Role)
+                             .AsNoTracking()
+                             .FirstOrDefaultAsync(user => user.Id.Equals(id));
+
+    }
 }

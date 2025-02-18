@@ -19,18 +19,21 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
             _userService = userService;
         }
 
-        // GET: api/User
+        // GET: api/user/withDetails/{id}
         [HttpGet]
-        public async Task<IActionResult> GetAllUsers()
+        [Route("withDetails/{id:guid}")]
+        public async Task<IActionResult> GetUserWithDetailsAsync(Guid id)
         {
-            Console.WriteLine("Buscando todos os usuários");
-            var users = await _service.GetAllAsync();
-            return Ok(users);
+            var userDto = await _userService.GetUserWithDetailsAsync(id);
+            if (userDto is null)
+                return NotFound("Sorry this user can be found in our database");
+            
+            return Ok(userDto);
         }
 
-        // GET api/User/5
-        [HttpGet("{id:guid}", Name = "GetUserById")]
-        public async Task<ActionResult<UserDTO>> GetById(Guid id)
+        [HttpGet]
+        [Route("{id:guid}")]
+        public async Task<ActionResult<UserDTO>> GetUserById(Guid id)
         {
             var userDto = await _userService.GetUserById(id);
 

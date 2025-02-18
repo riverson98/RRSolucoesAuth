@@ -9,7 +9,7 @@ public sealed class AddressEntity
     public string? Street { get; private set; }
     public int? Number { get; private set; }
     public string? District { get; private set; }
-    public char? State { get; private set; }
+    public string? State { get; private set; }
     public string? City { get; private set; }
     public string? ZipCode { get; private set; }
     public string? ProofOfResidencePath { get; private set; }
@@ -20,7 +20,7 @@ public sealed class AddressEntity
     {
         
     }
-    public AddressEntity(int id, string? street, int number, string? district, char state,
+    public AddressEntity(int id, string? street, int number, string? district, string state,
                          string? city, string? zipCode, string? proofOfResidencePath)
     {
         DomainExceptionValidation.When(id < 0, "Invalid value for id");
@@ -28,7 +28,7 @@ public sealed class AddressEntity
         ValidateDomain(street, number, district, state, city, zipCode, proofOfResidencePath);
     }
 
-    public AddressEntity(string? street, int number, string? district, char state, 
+    public AddressEntity(string? street, int number, string? district, string state, 
                          string? city, string? zipCode, string? proofOfResidencePath)
     {
         ValidateDomain(street, number, district, state, city, zipCode, proofOfResidencePath);
@@ -36,7 +36,7 @@ public sealed class AddressEntity
     }
 
 
-    private void ValidateDomain(string? street, int number, string? district, char state, 
+    private void ValidateDomain(string? street, int number, string? district, string state, 
                                 string? city, string? zipCode, string? proofOfResidencePath)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(street),
@@ -45,7 +45,7 @@ public sealed class AddressEntity
         DomainExceptionValidation.When(string.IsNullOrEmpty(district),
             "The district is required");
 
-        DomainExceptionValidation.When(char.IsWhiteSpace(state),
+        DomainExceptionValidation.When(string.IsNullOrEmpty(state),
             "The state is required");
 
         DomainExceptionValidation.When(string.IsNullOrEmpty(city),
@@ -54,7 +54,7 @@ public sealed class AddressEntity
         DomainExceptionValidation.When(string.IsNullOrEmpty(zipCode),
             "The zipCode is required");
 
-        DomainExceptionValidation.When(proofOfResidencePath.Length > 255,
+        DomainExceptionValidation.When(proofOfResidencePath?.Length > 255,
             "the file path is too large");
 
         DomainExceptionValidation.When(number < 0,
@@ -70,7 +70,7 @@ public sealed class AddressEntity
         DateUpload = DateTime.Now;
     }
     
-    public void Update(Guid userId, string? street, int number, string? district, char state,
+    public void Update(Guid userId, string? street, int number, string? district, string state,
                          string? city, string? zipCode, string? proofOfResidencePath)
     {
         ValidateDomain(street, number, district, state, city, zipCode, proofOfResidencePath);
