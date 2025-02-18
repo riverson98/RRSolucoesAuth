@@ -13,9 +13,12 @@ public class DocumentConfiguration : IEntityTypeConfiguration<DocumentEntity>
         builder.Property(it => it.NumberOfDocument).HasMaxLength(11).IsRequired();
         builder.Property(it => it.FilePath).IsRequired();
         builder.Property(it => it.DateUpload).IsRequired();
+        
+        builder.HasIndex(it => it.NumberOfDocument).IsUnique();
 
         builder.HasOne(it => it.User)
                .WithOne(it => it.Document)
                .HasForeignKey<DocumentEntity>(it => it.UserId);
+
     }
 }

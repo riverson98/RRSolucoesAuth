@@ -16,5 +16,8 @@ public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
         builder.Property(it => it.Sex).HasMaxLength(1);
         builder.Property(it => it.PhotoPath);
         builder.Property(it => it.RegistrationDate);
+        builder.Property(it => it.IsRegistrationComplete).IsRequired();
+
+        builder.HasIndex(it => it.Email).IsUnique();
     }
 }
