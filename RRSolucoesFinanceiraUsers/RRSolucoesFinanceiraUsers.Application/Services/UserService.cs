@@ -48,9 +48,9 @@ public class UserService : IUserService
 
         var userDto = new UserDTO
         {
-            Id = userEntity.Id,
-            Email = userEntity.Email,
-            IsRegistrationComplete = userEntity.IsRegistrationComplete
+            Id = userEntity?.Id,
+            Email = userEntity?.Email,
+            IsRegistrationComplete = userEntity?.IsRegistrationComplete ?? false
         };
         
         return userDto;

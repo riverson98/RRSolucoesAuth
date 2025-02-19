@@ -11,10 +11,10 @@ public sealed class UserEntity
     public char? Sex { get; private set; }
     public string? PhotoPath { get; private set; }
     public DateTime RegistrationDate { get; private set; }
-    public bool IsRegistrationComplete { get; private set; }
+    public bool? IsRegistrationComplete { get; private set; }
     public AddressEntity? Address { get; set; }
     public DocumentEntity? Document { get; set; }
-    public UserEntityRoles Role { get; set; }
+    public UserEntityRoles? Role { get; set; }
     public ICollection<PhoneEntity>? Phones { get; set; }
 
     public UserEntity()

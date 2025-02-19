@@ -26,7 +26,7 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
         {
             var userDto = await _userService.GetUserWithDetailsAsync(id);
             if (userDto is null)
-                return NotFound("Sorry this user can be found in our database");
+                return NotFound($"Sorry this user can be found in our database userId:{id}");
             
             return Ok(userDto);
         }
@@ -37,8 +37,8 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
         {
             var userDto = await _userService.GetUserById(id);
 
-            if (userDto is null)
-                return NotFound("Sorry this user can be found in our database");
+            if (userDto.Id is null)
+                return NotFound($"Sorry this user can be found in our database userId:{id}");
 
             return Ok(userDto);
         }
