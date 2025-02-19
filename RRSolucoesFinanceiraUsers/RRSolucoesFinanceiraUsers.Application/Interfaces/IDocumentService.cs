@@ -1,4 +1,4 @@
-﻿using RRSolucoesFinanceiraUsers.Application.DTOs;
+﻿using RRSolucoesFinanceiraUsers.Application.DTOs.requestDto;
 
 namespace RRSolucoesFinanceiraUsers.Application.Interfaces;
 

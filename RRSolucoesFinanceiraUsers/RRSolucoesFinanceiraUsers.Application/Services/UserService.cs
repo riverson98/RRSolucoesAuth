@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using RRSolucoesFinanceiraUsers.Application.DTOs;
+using RRSolucoesFinanceiraUsers.Application.DTOs.requestDto;
 using RRSolucoesFinanceiraUsers.Application.Interfaces;
 using RRSolucoesFinanceiraUsers.Domain.Entities;
 using RRSolucoesFinanceiraUsers.Domain.Interfaces;
@@ -18,12 +19,12 @@ public class UserService : IUserService
         _mapper = mapper;
     }
 
-    public async Task<UserDTO> AddEmailAndIdInicial(Guid id, string? email, DateTime createdAt)
+    public async Task<UserDto> AddEmailAndIdInicial(Guid id, string? email)
     {
 
-        var entityAdded = _unityOfWork.UserEntityRepository.AddEmailAndIdInicial(id, email, createdAt);
+        var entityAdded = _unityOfWork.UserEntityRepository.AddEmailAndIdInicial(id, email);
         await _unityOfWork.CommitAsync();
-        var userDto = new UserDTO
+        var userDto = new UserDto
         {
             Id = entityAdded.Result.Id,
             Email = entityAdded.Result.Email,
@@ -33,26 +34,19 @@ public class UserService : IUserService
         return userDto;
     }
 
-    public async Task<UserDTO> GetUserWithDetailsAsync(Guid id)
+    public async Task<UserWithDetailsDTO> GetUserWithDetailsAsync(Guid id)
     {
         var userFound = await _unityOfWork.UserEntityRepository.GetUserWithDetailsAsync(id);
 
-        return _mapper.Map<UserDTO>(userFound);
+        return _mapper.Map<UserWithDetailsDTO>(userFound);
     }
 
-    public async Task<UserDTO> GetUserById(Guid id)
+    public async Task<UserDto> GetUserById(Guid id)
     {
         Expression<Func<UserEntity, bool>> entityPredicate = it => it.Id.Equals(id);
          
         var userEntity = await _unityOfWork.Repository.GetAsync(entityPredicate);
 
-        var userDto = new UserDTO
-        {
-            Id = userEntity?.Id,
-            Email = userEntity?.Email,
-            IsRegistrationComplete = userEntity?.IsRegistrationComplete ?? false
-        };
-        
-        return userDto;
+        return _mapper.Map<UserDto>(userEntity);
     }
 }

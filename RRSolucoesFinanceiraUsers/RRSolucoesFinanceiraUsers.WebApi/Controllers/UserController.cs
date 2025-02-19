@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RRSolucoesFinanceiraUsers.Application.DTOs;
+using RRSolucoesFinanceiraUsers.Application.DTOs.requestDto;
 using RRSolucoesFinanceiraUsers.Application.Interfaces;
 using RRSolucoesFinanceiraUsers.Domain.Entities;
 
@@ -11,9 +12,9 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IService<UserEntity, UserDTO> _service;
+        private readonly IService<UserEntity, UserDto> _service;
         private readonly IUserService _userService;
-        public UserController(IService<UserEntity, UserDTO> service, IUserService userService)
+        public UserController(IService<UserEntity, UserDto> service, IUserService userService)
         {
             _service = service;
             _userService = userService;
@@ -22,7 +23,7 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
         // GET: api/user/withDetails/{id}
         [HttpGet]
         [Route("withDetails/{id:guid}")]
-        public async Task<IActionResult> GetUserWithDetailsAsync(Guid id)
+        public async Task<ActionResult<UserWithDetailsDTO>> GetUserWithDetailsAsync(Guid id)
         {
             var userDto = await _userService.GetUserWithDetailsAsync(id);
             if (userDto is null)
@@ -33,7 +34,7 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
 
         [HttpGet]
         [Route("{id:guid}")]
-        public async Task<ActionResult<UserDTO>> GetUserById(Guid id)
+        public async Task<ActionResult<UserDto>> GetUserById(Guid id)
         {
             var userDto = await _userService.GetUserById(id);
 
@@ -45,7 +46,7 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
 
         // POST api/User
         [HttpPost]
-        public async Task<ActionResult<UserDTO>> Post(UserDTO userDto)
+        public async Task<ActionResult<UserDto>> Post(UserDto userDto)
         {
             if (userDto is null)
                 return BadRequest();
@@ -56,8 +57,8 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
         }
 
         // PUT api/User/5
-        [HttpPut("{id}")]
-        public async Task<ActionResult<UserDTO>> Put(int id, UserDTO userDto)
+        [HttpPut("{id:guid}")]
+        public async Task<ActionResult<UserDto>> Put(Guid id, UserDto userDto)
         {
             if (!id.Equals(userDto.Id))
                 return BadRequest("The id and the user id most be equals");
@@ -69,7 +70,7 @@ namespace RRSolucoesFinanceiraUsers.WebApi.Controllers
 
         // DELETE api/User/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<UserDTO>> Delete(int id)
+        public async Task<ActionResult<UserWithDetailsDTO>> Delete(int id)
         {
             var userDto = await _service.GetAsync(user => user.Id.Equals(id));
 

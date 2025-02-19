@@ -25,11 +25,10 @@ public class UserCreatedConsumer : IConsumer<UserCreatedEvent>
             time.Start();
             var userId = context.Message.UserId;
             var userEmail = context.Message.Email;
-            var userCreatedAt = context.Message.CreatedAt;
 
             _log.LogInformation("🚀 Receiving event of pre-register the user id:{0} e-mail:{1};", userId, userEmail);
 
-            await _userService.AddEmailAndIdInicial(Guid.Parse(userId!), userEmail, userCreatedAt);
+            await _userService.AddEmailAndIdInicial(Guid.Parse(userId!), userEmail);
 
             time.Stop();
 

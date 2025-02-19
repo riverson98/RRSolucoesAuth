@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RRSolucoesFinanceiraUsers.Application.DTOs;
+namespace RRSolucoesFinanceiraUsers.Application.DTOs.requestDto;
 
 public class UserRolesDTO
 {

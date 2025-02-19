@@ -1,8 +1,6 @@
-﻿using RRSolucoesFinanceiraUsers.Domain.Entities;
-using RRSolucoesFinanceiraUsers.Domain.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace RRSolucoesFinanceiraUsers.Application.DTOs;
+namespace RRSolucoesFinanceiraUsers.Application.DTOs.requestDto;
 
 public class DocumentDTO
 {

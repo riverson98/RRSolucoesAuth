@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RRSolucoesFinanceiraUsers.Application.DTOs;
+using RRSolucoesFinanceiraUsers.Application.DTOs.requestDto;
 using RRSolucoesFinanceiraUsers.Application.Interfaces;
 using RRSolucoesFinanceiraUsers.Application.Services;
 using RRSolucoesFinanceiraUsers.Domain.Entities;

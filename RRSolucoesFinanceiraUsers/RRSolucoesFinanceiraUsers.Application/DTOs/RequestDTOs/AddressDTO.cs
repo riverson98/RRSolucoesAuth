@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RRSolucoesFinanceiraUsers.Application.DTOs;
+namespace RRSolucoesFinanceiraUsers.Application.DTOs.requestDto;
 
 public class AddressDTO
 {
@@ -26,6 +26,6 @@ public class AddressDTO
 
     [Required(ErrorMessage = "The zip code is required")]
     public string? ZipCode { get; set; }
-    
+
     public string? ProofOfResidencePath { get; set; }
 }

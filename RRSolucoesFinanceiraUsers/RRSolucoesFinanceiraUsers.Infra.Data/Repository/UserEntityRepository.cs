@@ -12,9 +12,9 @@ public class UserEntityRepository : Repository<UserEntity>, IUserEntityRepositor
     {
     }
 
-    public async Task<UserEntity> AddEmailAndIdInicial(Guid id, string? email, DateTime createdAt)
+    public async Task<UserEntity> AddEmailAndIdInicial(Guid id, string? email)
     {
-        var userEntity = new UserEntity(email!, id, createdAt, isRegistrationComplete: false);
+        var userEntity = new UserEntity(email!, id);
         _context.Add(userEntity);
         return userEntity;  
     }

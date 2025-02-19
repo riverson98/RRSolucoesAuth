@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using RRSolucoesFinanceiraUsers.Application.DTOs.requestDto;
+using System.ComponentModel.DataAnnotations;
 
 namespace RRSolucoesFinanceiraUsers.Application.DTOs;
 
-public class UserDTO
+public class UserWithDetailsDTO
 {
     public Guid? Id { get; set; }
     public string? Name { get; set; }
@@ -10,7 +11,7 @@ public class UserDTO
     [Required(ErrorMessage = "The email is required")]
     public string? Email { get; set; }
     public DateOnly? BirthDate { get; set; }
-    public char? Sex { get; set; }
+    public string? Sex { get; set; }
     public string? PhotoPath { get; set; }
     public bool IsRegistrationComplete { get; set; }
     public DateTime? CreatedAt { get; set; }

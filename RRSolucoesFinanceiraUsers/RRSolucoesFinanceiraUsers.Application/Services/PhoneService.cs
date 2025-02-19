@@ -1,4 +1,4 @@
-﻿using RRSolucoesFinanceiraUsers.Application.DTOs;
+﻿using RRSolucoesFinanceiraUsers.Application.DTOs.requestDto;
 using RRSolucoesFinanceiraUsers.Application.Interfaces;
 using RRSolucoesFinanceiraUsers.Domain.Entities;
 using RRSolucoesFinanceiraUsers.Domain.Interfaces;
